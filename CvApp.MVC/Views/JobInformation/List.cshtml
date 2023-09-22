@@ -1,0 +1,52 @@
+﻿
+@using CvApp.Models.DTO;
+@model List<JobInformationDTO>
+
+@{
+    ViewData["Title"] = "List";
+}
+<partial name="Partials/ViewMessages" />
+
+
+<div>
+    <a class="btn btn-primary flex-grow-1 ms-auto" asp-controller="JobInformation" asp-action="Create">İş Bilgisi Ekle</a>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">İş Başlığı</th>
+            <th scope="col">Sektör</th>
+            <th scope="col">Çalışma Şekli</th>
+            <th scope="col">Devam Durumu</th>
+            <th scope="col">ŞirketID</th>
+            <th scope="col">Dosya Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.CompanyId</th>
+                <td>@item.JobTitle</td>
+                <td>@item.CompanySector</td>
+                <td>@item.CompanyName</td>
+                <td>@item.IsContinue</td>
+                <td>@item.CompanyLocation</td>
+                <td>@item.fileName</td>
+                <td>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.JobId" asp-controller="JobInformation">Detaylar</a>
+                    <a class="btn btn-info" asp-action="Update" asp-route-id="@item.JobId" asp-controller="JobInformation">Düzenle</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.JobId" asp-controller="JobInformation">Sil</a>
+                    <a asp-action="DownloadFile" asp-controller="JobInformation" asp-route-fileName="@item.fileName"> İndir</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

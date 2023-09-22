@@ -1,0 +1,24 @@
+﻿@using CvApp.Models.DTO.CvApp.Data.Entities;
+@model CertificateDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Sertifika Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Alınan Kurum:</strong> @Model.CertificateCompany</li>
+            <li class="list-group-item"><strong>Sertifika Tarihi:</strong> @Model.CertificateDate</li>
+            <li class="list-group-item"><strong>Sertifika ID:</strong> @Model.CertificateId</li>
+            <li class="list-group-item"><strong>Sertifika Adı:</strong> @Model.CertificateName</li>
+            <li class="list-group-item"><strong>Açıklamalar:</strong> @Model.CertificateDescription</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+       
+        
+    </div>
+</div>

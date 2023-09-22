@@ -1,0 +1,41 @@
+﻿@using CvApp.Models.DTO;
+@model UserDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-body">
+        
+        <h5 class="card-title">@Model.FirstName @Model.LastName</h5>
+        <p class="card-text">
+            <img src="~/Uploads/@Model.fileName" style="height:500px"/>
+        </p>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Id:</strong> @Model.UserId</li>
+        <li class="list-group-item"><strong>Adı:</strong> @Model.FirstName</li>
+        <li class="list-group-item"><strong>Soyadı:</strong> @Model.LastName</li>
+        <li class="list-group-item"><strong>Email:</strong> @Model.Email</li>
+        <li class="list-group-item"><strong>Oluşturma Tarihi:</strong> @Model.CreatedAt</li>
+        <li class="list-group-item"><strong>Kullanıcı Adı:</strong> @Model.UserName</li>
+        <li class="list-group-item"><strong>Telefon Numarası:</strong> @Model.PhoneNumber</li>
+        <li class="list-group-item"><strong>Açıklama:</strong> @Model.UserDescription</li>
+        <li class="list-group-item"><strong>Doğum Günü:</strong> @Model.BirtDay</li>
+        <li class="list-group-item"><strong>Şehir:</strong> @Model.Location</li>
+        <li class="list-group-item"><strong>Uyruk:</strong> @Model.UK</li>
+        <li class="list-group-item"><strong>Cinsiyet:</strong> @Model.Gender</li>
+        <li class="list-group-item"><strong>Askerlik Durumu:</strong> @Model.MSwasDone</li>
+        <li class="list-group-item"><strong>Hobileri:</strong> @Model.Hobies</li>
+        <li class="list-group-item"><strong>Rolü Notu:</strong> @Model.Roles</li>
+        <li class="list-group-item"><strong>Id:</strong> @Model.UserId</li>
+        <li class="list-group-item"><strong>Hobiler:</strong> @Model.Hobies</li>
+        <li class="list-group-item"><strong>Roller:</strong> @Model.Roles</li>
+    </ul>
+    <div class="card-footer">
+        <a href="#" class="btn btn-primary">Detaylar</a>
+    </div>
+</div>
+
+
+

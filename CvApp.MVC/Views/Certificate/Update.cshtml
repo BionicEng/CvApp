@@ -1,0 +1,57 @@
+﻿@using CvApp.Models.DTO.CvApp.Data.Entities;
+@model CertificateDTO
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>CertificateDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" asp-controller="Certificate" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            
+            <div class="form-group">
+                <label asp-for="CertificateName" class="control-label">Certificate Name</label>
+                <input asp-for="CertificateName" class="form-control" />
+                <span asp-validation-for="CertificateName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CertificateDescription" class="control-label">Description</label>
+                <textarea asp-for="CertificateDescription" class="form-control"></textarea>
+                <span asp-validation-for="CertificateDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CertificateCompany" class="control-label">Certificate Company</label>
+                <input asp-for="CertificateCompany" class="form-control" />
+                <span asp-validation-for="CertificateCompany" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CertificateDate" class="control-label">Certificate Date</label>
+                <input asp-for="CertificateDate" type="date" class="form-control" />
+                <span asp-validation-for="CertificateDate" class="text-danger"></span>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label for="formFile">Dosya Seçiniz</label>
+                    <input type="file" class="control-label" id="formFile" name="formFile" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+                <a asp-action="List" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+

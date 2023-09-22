@@ -1,0 +1,47 @@
+﻿@using CvApp.Models.DTO;
+
+@model List<KnownProgramDTO>
+
+@{
+    ViewData["Title"] = "List";
+}
+<partial name="Partials/ViewMessages" />
+
+
+<div>
+    <a class="btn btn-primary flex-grow-1 ms-auto" asp-controller="KnownProgram" asp-action="Create">Program Ekle</a>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Program Adı</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Dosya Adı</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.ProgramId</th>
+                <td>@item.ProgramName</td>
+                <td>@item.ProgramDescription</td>
+                <td>@item.fileName</td>
+                <td>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.ProgramId" asp-controller="KnownProgram">Detaylar</a>
+                    <a class="btn btn-info" asp-action="Update" asp-route-id="@item.ProgramId" asp-controller="KnownProgram">Düzenle</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.ProgramId" asp-controller="KnownProgram">Sil</a>
+                    <a asp-action="DownloadFile" asp-controller="KnownProgram" asp-route-fileName="@item.fileName"> İndir</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

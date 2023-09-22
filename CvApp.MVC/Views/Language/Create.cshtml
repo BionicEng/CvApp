@@ -1,0 +1,56 @@
+﻿@using CvApp.Models.DTO;
+@model LanguageDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Dil Bilgisi Ekle</h4>
+<partial name="Partials/ViewMessages" />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Create" asp-controller="Language" method="post" enctype="multipart/form-data">
+
+            <div class="form-group mt-2">
+                <label asp-for="LanguageName" class="control-label">Yabancı Dil :</label>
+                <input asp-for="LanguageName" class="form-control" />
+                <span asp-validation-for="LanguageName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="LanguageDescription" class="control-label">Açıklama :</label>
+                <textarea asp-for="LanguageDescription" class="form-control"></textarea>
+                <span asp-validation-for="LanguageDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="LanguageLevel" class="control-label">Seviye :</label>
+                <input asp-for="LanguageLevel" class="form-control" />
+                <span asp-validation-for="LanguageLevel" class="text-danger"></span>
+            </div>         
+            <div>
+                <div class="form-group mt-2">
+                    <label for="formFile">Dil Sertifikası :</label>
+                    <input type="file" class="form-control" id="formFile" name="formFile" />
+                </div>
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="submit" class="btn btn-primary"  <i class="fa-solid fa-xmark"></i> 
+
+                <a asp-action="List" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </form>
+        @section Scripts
+        {
+            <script>
+
+            </script>
+        }
+       
+
+
+    </div>
+</div>

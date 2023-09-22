@@ -1,0 +1,117 @@
+﻿@using CvApp.Models.DTO;
+
+@model JobInformationDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>İş Bilgisi Ekle</h4>
+<partial name="Partials/ViewMessages" />
+
+<div class="row">
+
+
+    <form asp-action="Create" asp-controller="JobInformation" method="post" enctype="multipart/form-data">
+        <div class="col-md-6">
+
+            <div class="form-group mt-2">
+                <label asp-for="JobTitle" class="control-label">Ünvan :</label>
+                <input asp-for="JobTitle" class="form-control" />
+                <span asp-validation-for="JobTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="JobDescription" class="control-label">Açıklama :</label>
+                <textarea asp-for="JobDescription" class="form-control"></textarea>
+                <span asp-validation-for="JobDescription" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanyName" class="control-label">Şirket Adı :</label>
+                <input asp-for="CompanyName" class="form-control" />
+                <span asp-validation-for="CompanyName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanyDescription" class="control-label"> Şirket Açıklaması :</label>
+                <textarea asp-for="CompanyDescription" class="form-control"></textarea>
+                <span asp-validation-for="CompanyDescription" class="text-danger"></span>
+            </div>
+
+        </div> <!-- İlk sütun sonu -->
+
+        <div class="col-md-6">
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanyType" class="control-label">Şirket Tipi :</label>
+                <input asp-for="CompanyType" class="form-control" />
+                <span asp-validation-for="CompanyType" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanySector" class="control-label">Sektör :</label>
+                <input asp-for="CompanySector" class="form-control" />
+                <span asp-validation-for="CompanySector" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanyLocation" class="control-label">Şirket Lokasyonu :</label>
+                <input asp-for="CompanyLocation" class="form-control" />
+                <span asp-validation-for="CompanyLocation" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="Country" class="control-label">Ülke :</label>
+                <input asp-for="Country" class="form-control" />
+                <span asp-validation-for="Country" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="CompanyCreatedTime" class="control-label">Şirket Kuruluş Tarihi :</label>
+                <input asp-for="CompanyCreatedTime" class="form-control" />
+                <span asp-validation-for="CompanyCreatedTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="IsContinue">Bu kutuyu işaretle:</label>
+                <input asp-for="IsContinue" />
+            </div>
+
+        </div> <!-- İkinci sütun sonu -->
+
+        <div class="col-md-6">
+
+            <div class="form-group mt-2">
+                <label asp-for="WorkingMethod" class="control-label">Çalışma Şekli :</label>
+                <input asp-for="WorkingMethod" class="form-control" />
+                <span asp-validation-for="WorkingMethod" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="StartedTime" class="control-label">Başlangıç Tarihi :</label>
+                <input asp-for="StartedTime" type="date" class="form-control" />
+                <span asp-validation-for="StartedTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="EndTime" class="control-label">Ayrılış Tarihi :</label>
+                <input asp-for="EndTime" type="date" class="form-control" />
+                <span asp-validation-for="EndTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="formFile">Sertifika Dosyası :</label>
+                <input type="file" class="form-control" id="formFile" name="formFile" />
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="submit" class="btn btn-primary" value="Kaydet" />
+                <a asp-action="List" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+
+        </div> <!-- Üçüncü sütun sonu -->
+
+    </form>
+
+</div>

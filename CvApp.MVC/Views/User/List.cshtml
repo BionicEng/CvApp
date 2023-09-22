@@ -1,0 +1,55 @@
+﻿@using CvApp.Models.DTO;
+
+@model List<UserDTO>
+
+@{
+    ViewData["Title"] = "List";
+}
+<partial name="Partials/ViewMessages" />
+
+
+<div>
+    <a class="btn btn-primary flex-grow-1 ms-auto" asp-controller="User" asp-action="Create">Kişisel Bilgileri Ekle</a>
+</div>
+
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">İsim</th>
+            <th scope="col">Soyisim</th>
+            <th scope="col">Email</th>
+            <th scope="col">Kullanıcı Adı</th>
+            <th scope="col">Telefon</th>
+            <th scope="col">Lokasyon</th>
+            <th scope="col">Rolü</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.UserId</th>
+                <td>@item.FirstName</td>
+                <td>@item.LastName</td>
+                <td>@item.Email</td>
+                <td>@item.UserName</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Location</td>
+                <td>@item.Roles</td>
+                <td>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.UserId" asp-controller="User">Detaylar</a>
+                    <a class="btn btn-info" asp-action="Update" asp-route-id="@item.UserId" asp-controller="User">Düzenle</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.UserId" asp-controller="User">Sil</a>
+                    <a asp-action="DownloadFile" asp-controller="User" asp-route-fileName="@item.fileName"> İndir</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

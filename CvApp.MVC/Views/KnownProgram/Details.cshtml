@@ -1,0 +1,22 @@
+﻿@using CvApp.Models.DTO;
+
+@model KnownProgramDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">İş Bilgisi Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Id:</strong> @Model.ProgramId</li>
+            <li class="list-group-item"><strong>Program Adı:</strong> @Model.ProgramName</li>
+            <li class="list-group-item"><strong>Açıklama:</strong> @Model.ProgramDescription</li>
+            <li class="list-group-item"><strong>Logo:</strong> @Model.fileName</li>öö
+        </ul>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

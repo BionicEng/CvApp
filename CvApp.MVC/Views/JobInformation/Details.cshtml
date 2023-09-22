@@ -1,0 +1,34 @@
+﻿
+@using CvApp.Models.DTO;
+@model JobInformationDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">İş Bilgisi Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Id:</strong> @Model.JobId</li>
+            <li class="list-group-item"><strong>Ünvan:</strong> @Model.JobTitle</li>
+            <li class="list-group-item"><strong>Açıklama:</strong> @Model.JobDescription</li>
+            <li class="list-group-item"><strong>Devam Durumu:</strong> @Model.IsContinue</li>
+            <li class="list-group-item"><strong>Başlama Tarihi:</strong> @Model.StartedTime</li>
+            <li class="list-group-item"><strong>Bitiş Tarihi:</strong> @Model.EndTime</li>
+            <li class="list-group-item"><strong>Şirket Id:</strong> @Model.CompanyId</li>
+            <li class="list-group-item"><strong>Şirket Adı:</strong> @Model.CompanyName</li>
+            <li class="list-group-item"><strong>Şirket Açıklaması:</strong> @Model.CompanyDescription</li>
+            <li class="list-group-item"><strong>Şirket Tipi:</strong> @Model.CompanyType</li>
+            <li class="list-group-item"><strong>Sektör:</strong> @Model.CompanySector</li>
+            <li class="list-group-item"><strong>Şehir:</strong> @Model.CompanyLocation</li>
+            <li class="list-group-item"><strong>Ülke:</strong> @Model.Country</li>
+            <li class="list-group-item"><strong>Şirket Kuruluş Tarihi:</strong> @Model.CompanyCreatedTime</li>
+            
+        </ul>
+        </ul>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

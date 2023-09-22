@@ -1,0 +1,23 @@
+﻿@using CvApp.Models.DTO;
+@model LanguageDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Dil Bilgisi Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Yabancı Dil:</strong> @Model.LanguageName</li>
+            <li class="list-group-item"><strong>Açıklama:</strong> @Model.LanguageDescription</li>
+            <li class="list-group-item"><strong>Seviye:</strong> @Model.LanguageLevel</li>
+            <li class="list-group-item"><strong>Sertifika Dosyası:</strong> @Model.fileName</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+       
+        
+    </div>
+</div>

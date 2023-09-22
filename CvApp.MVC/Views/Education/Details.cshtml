@@ -1,0 +1,29 @@
+﻿@using CvApp.Models.DTO;
+@model EducationDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Eğitim Bilgisi Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Id:</strong> @Model.EducationId</li>
+            <li class="list-group-item"><strong>Üniversite:</strong> @Model.UniversityName</li>
+            <li class="list-group-item"><strong>Fakülte:</strong> @Model.FacultyName</li>
+            <li class="list-group-item"><strong>Bölüm:</strong> @Model.Department</li>
+            <li class="list-group-item"><strong>Başlama Tarihi:</strong> @Model.StartedTime</li>
+            <li class="list-group-item"><strong>Bitiş Tarihi:</strong> @Model.EndTime</li>
+            <li class="list-group-item"><strong>Öğrenim Tipi:</strong> @Model.EducationType</li>
+            <li class="list-group-item"><strong>Diploma Notu:</strong> @Model.DegreeNote</li>
+            <li class="list-group-item"><strong>Eğitim Dili:</strong> @Model.EducationLanguage</li>
+            <li class="list-group-item"><strong>Açıklama:</strong> @Model.EducationDescription</li>
+
+        </ul>
+        </ul>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

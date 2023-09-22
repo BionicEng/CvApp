@@ -1,0 +1,48 @@
+﻿@using CvApp.Models.DTO;
+@model List<LanguageDTO>
+
+@{
+    ViewData["Title"] = "List";
+}
+<partial name="Partials/ViewMessages" />
+
+
+<div>
+    <a class="btn btn-primary flex-grow-1 ms-auto" asp-controller="Language" asp-action="Create">Yabancı Dil Ekle</a>
+</div>
+
+    
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Yabancı Dil</th>
+            <th scope="col">Açıklama</th>
+            <th scope="col">Seviye</th>
+            <th scope="col">Dosya Adı</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.LanguageCount</th>
+                <td>@item.LanguageName</td>
+                <td>@item.LanguageDescription</td>
+                <td>@item.LanguageLevel</td>
+                <td>@item.fileName</td>
+                <td>
+                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.LanguageId" asp-controller="Language">Detaylar</a>
+                    <a class="btn btn-info" asp-action="Update" asp-route-id="@item.LanguageId" asp-controller="Language">Düzenle</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.LanguageId" asp-controller="Language">Sil</a>
+                    <a asp-action="DownloadFile" asp-controller="Language" asp-route-fileName="@item.fileName"> İndir</a>
+                   
+                </td>
+            </tr>
+        }      
+    </tbody>
+</table>
