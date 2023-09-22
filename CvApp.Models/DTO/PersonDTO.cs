@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using CvApp.Models.DTO.CvApp.Data.Entities;
+using CvApp.Data.Entities;
 
 namespace CvApp.Models.DTO
 {
@@ -17,7 +18,7 @@ namespace CvApp.Models.DTO
 
         public ICollection<EducationDTO>? Educations { get; set; }
         public ICollection<JobInformationDTO>? JobInformation { get; set; }
-        public ICollection<LanguageDTO>? Languages { get; set; }
+        public ICollection<LanguageEntity>? Languages { get; set; }
         public ICollection<KnownProgramDTO>? KnownPrograms { get; set; }
         public ICollection<CertificateDTO>? Certificates { get; set; }
        public ICollection<UserDTO>? Users { get; set; }

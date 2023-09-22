@@ -99,6 +99,7 @@ namespace CvApp.MVC.Controllers
             return RedirectToAction(nameof(List));
         }
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Details([FromRoute] int id)
         {
 

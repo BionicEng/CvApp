@@ -1,0 +1,23 @@
+﻿
+@using CvApp.Models.DTO;
+@model ServiceDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Sertifika Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Alınan Kurum:</strong> @Model.Name</li>
+            <li class="list-group-item"><strong>Sertifika Tarihi:</strong> @Model.Description</li>
+            <li class="list-group-item"><strong>Sertifika ID:</strong> @Model.Id</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+       
+        
+    </div>
+</div>

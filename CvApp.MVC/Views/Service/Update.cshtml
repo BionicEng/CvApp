@@ -1,0 +1,51 @@
+﻿@using CvApp.Models.DTO.CvApp.Data.Entities;
+@using CvApp.Models.DTO;
+@model ServiceDTO
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>ServisDTO</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <div class="row">
+            <div class="col-md-6">
+
+                <form asp-action="Create" asp-controller="Service" method="post" enctype="multipart/form-data">
+
+                    <div class="form-group mt-2">
+                        <label asp-for="Name" class="control-label">Servis Adı :</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <label asp-for="Description" class="control-label">Açıklama :</label>
+                        <textarea asp-for="Description" class="form-control"></textarea>
+                        <span asp-validation-for="Description" class="text-danger"></span>
+                    </div>
+
+
+                    <div>
+                        <div class="form-group mt-2">
+                            <label for="formFile">Servis Image :</label>
+                            <input type="file" class="form-control" id="formFile" name="formFile" />
+                        </div>
+                    </div>
+
+                    <div class="form-group mt-2">
+                        <input type="submit" class="btn btn-primary"  <i class="fa-solid fa-xmark"></i>
+
+                        <a asp-action="List" class="btn btn-secondary">Listeye Dön</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="List">Back to List</a>
+        </div>
+

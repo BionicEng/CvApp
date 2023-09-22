@@ -1,5 +1,14 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
+﻿@using CvApp.Models.DTO;
+@model List<EducationDTO>
+
+<h3 class="resume-title">Eğitim </h3>
+@foreach (var item in Model)
+{
+    <div class="resume-item">
+        <h5>@item.StartedTime.Year - @item.EndTime.Year</h5>
+        <p><em>@item.Department - @item.DegreeNote </em></p>
+        <h4>@item.UniversityName - @item.FacultyName</h4>
+        <p>@item.EducationDescription</p>
+    </div>
+
 }

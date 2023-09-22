@@ -13,20 +13,20 @@ namespace CvApp.MVC.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IRepositoryManager<UserEntity> _userRepository;
+        private readonly IRepositoryManager<PersonEntity> _personRepository;
         private readonly IMapper _mapper;
 
 
-        public HomeController(ILogger<HomeController> logger, IRepositoryManager<UserEntity> userRepository, IMapper mapper )
+        public HomeController(ILogger<HomeController> logger, IRepositoryManager<UserEntity> userRepository, IMapper mapper, IRepositoryManager<PersonEntity> personRepository = null)
         {
             _logger = logger;
             _userRepository = userRepository;
             _mapper = mapper;
+            _personRepository = personRepository;
         }
 
         public IActionResult Index()
         {
-            
-
             return View();
         }
 

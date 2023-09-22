@@ -18,6 +18,7 @@ namespace CvApp.Data.DbContexts
         public DbSet<LanguageEntity> LanguagesTable { get; set; }
         public DbSet<PersonEntity> PersonsTable { get; set; }
         public DbSet<UserEntity> UsersTable { get; set; }
+        public DbSet<ServiceEntity> ServicesTable { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

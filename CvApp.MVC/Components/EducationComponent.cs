@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using CvApp.Data.Entities;
 using CvApp.Data.Services.Abstract;
+using CvApp.Models.DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CvApp.MVC.Components
@@ -20,7 +21,7 @@ namespace CvApp.MVC.Components
         public IViewComponentResult Invoke()
         {
             var educations = _repositoryManager.Get().ToList();
-            var educationsDTO = _mapper.Map<List<EducationEntity>>(educations);
+            var educationsDTO = _mapper.Map<List<EducationDTO>>(educations);
             return View(educationsDTO);
         }
     }

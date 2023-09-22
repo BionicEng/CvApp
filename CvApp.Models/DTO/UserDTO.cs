@@ -38,7 +38,6 @@ namespace CvApp.Models.DTO
         [Required]
         [Phone]
         public string PhoneNumber { get; set; } = string.Empty;
-        [MaxLength(200, ErrorMessage = ("Açıklama 200 karakter olmalı."))]
         public string UserDescription { get; set; } = string.Empty;
         public int UserCount { get; set; }
         public string fileName { get; set; } = string.Empty;

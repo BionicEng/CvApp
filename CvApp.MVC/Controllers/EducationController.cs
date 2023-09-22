@@ -42,7 +42,7 @@ namespace CvApp.MVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm] EducationDTO education, [FromForm] IFormFile formFile)
+        public async Task<IActionResult> CreateAsync([FromForm] EducationDTO education, [FromForm] IFormFile? formFile)
         {
             if (education == null)
             {
@@ -57,9 +57,14 @@ namespace CvApp.MVC.Controllers
 
             }
             var educationEnt = _mapper.Map<EducationEntity>(education);
-            var uploadResponse = await _fileManager.UploadFileAsync(formFile);
-            educationEnt.fileName = uploadResponse.FileName;
-            educationEnt.filePath = uploadResponse.FilePath;
+            if (formFile is not null)
+            {
+                var uploadResponse = await _fileManager.UploadFileAsync(formFile);
+                educationEnt.fileName = uploadResponse.FileName;
+                educationEnt.filePath = uploadResponse.FilePath;
+            }
+
+
             var result = _educationRepo.Add(educationEnt);
             ViewBag.SuccessMessage = "Eğitim bilgisi başarılı şekilde eklendi.";
             _logger.LogInformation("Eğitim bilgisi başarılı şekilde eklendi.");
@@ -74,7 +79,7 @@ namespace CvApp.MVC.Controllers
             return View(EducationDTO);
         }
         [HttpPost]
-        public async Task<IActionResult> Update([FromRoute] int id, [FromForm] EducationDTO education, [FromForm] IFormFile formFile)
+        public async Task<IActionResult> Update([FromRoute] int id, [FromForm] EducationDTO education, [FromForm] IFormFile? formFile)
         {
             var entity = _educationRepo.GetById(id).Data;
             entity.UniversityName = education.UniversityName;
@@ -86,9 +91,14 @@ namespace CvApp.MVC.Controllers
             entity.DegreeNote = education.DegreeNote;
             entity.StartedTime = education.StartedTime;
             entity.EndTime = education.EndTime;
-            var uploadResponse = await _fileManager.UploadFileAsync(formFile);
-            entity.fileName = uploadResponse.FileName;
-            entity.filePath = uploadResponse.FilePath;
+
+            if (formFile is not null)
+            {
+                var uploadResponse = await _fileManager.UploadFileAsync(formFile);
+                entity.fileName = uploadResponse.FileName;
+                entity.filePath = uploadResponse.FilePath;
+            }
+            
             _educationRepo.Update(entity);
             return RedirectToAction(nameof(List));
 

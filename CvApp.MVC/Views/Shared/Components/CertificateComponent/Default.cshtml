@@ -1,35 +1,64 @@
 ﻿@using CvApp.Models.DTO.CvApp.Data.Entities;
 @model List<CertificateDTO>
+<section id="certificates" class="certificates section-bg">
+    <div class="container" data-aos="fade-up">
 
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Sertifika Adı</th>
-            <th scope="col">Kurum</th>
-            <th scope="col">Tarih</th>
-            <th scope="col">Dosya Adı</th>
-            <th scope="col">İşlemler</th>
-        </tr>
-    </thead>
-    <tbody>
+        <div class="section-title">
+            <h2>Sertifikalar</h2>
+            <p>İşte benim aldığım sertifikaların bir listesi:</p>
+        </div>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <th scope="row">@item.CertificateId</th>
-                <td>@item.CertificateName</td>
-                <td>@item.CertificateCompany</td>
-                <td>@item.CertificateDate</td>
-                <td>@item.fileName</td>
-                <td>
-                    <a class="btn btn-success" asp-action="Details" asp-route-id="@item.CertificateId" asp-controller="Certificate">Detaylar</a>
-                    <a class="btn btn-info" asp-action="Update" asp-route-id="@item.CertificateId" asp-controller="Certificate">Düzenle</a>
-                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.CertificateId" asp-controller="Certificate">Sil</a>
-                    <a asp-action="DownloadFile" asp-controller="Certificate" asp-route-fileName="@item.fileName"> İndir</a>
+        <div class="row certificates-content">
+            @foreach (var certificate in Model)
+            {
+                <div class="col-lg-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="certificate-card">
+                        <div class="certificate-header">
+                            <h4>@certificate.CertificateName</h4>
+                            <h5>Alınma Tarihi: @certificate.CertificateDate.ToString().Substring(0,10)</h5>
+                        </div>
 
-                </td>
-            </tr>
+                        <div class="certificate-download">
+                            <a asp-action="DownloadFile" asp-controller="Certificate" asp-route-fileName="@certificate.fileName" class="btn btn-primary">İndir</a>
+                             <a class="btn btn-success" asp-action="Details" asp-route-id="@certificate.CertificateId" asp-controller="Certificate">Detaylar</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+</section>
+
+<style>
+    .certificates {
+        background-color: white;
+        padding: 60px 0;
+    }
+
+        .certificates .section-title {
+            text-align: center;
+            padding-bottom: 30px;
         }
-    </tbody>
-</table>
+
+    .certificate-card {
+        border: 1px solid #e0e0e0;
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: #fff;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .certificate-header h4 {
+        color: #007bff;
+    }
+
+    .certificate-description p {
+        font-size: 16px;
+    }
+
+    .certificate-download {
+        text-align: right;
+        margin-top: 10px;
+    }
+</style>

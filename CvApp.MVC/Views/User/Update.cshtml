@@ -7,17 +7,18 @@
 
 <partial name="Partials/ViewMessages" />
 
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">@Model.FirstName @Model.LastName</span><span class="text-black-50">@Model.Email</span><span> </span></div>
-        </div>
-        <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h5 class="text-right">Profil Bilgileri</h5>
-                </div>
-                <form asp-action="Update" asp-controller="User" method="post" enctype="multipart/form-data">
+
+<form asp-action="Update" asp-controller="User" method="post" enctype="multipart/form-data">
+    <div class="container rounded bg-white mt-5 mb-5">
+        <div class="row">
+            <div class="col-md-3 border-right">
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg"><span class="font-weight-bold">@Model.FirstName @Model.LastName</span><span class="text-black-50">@Model.Email</span><span> </span></div>
+            </div>
+            <div class="col-md-5 border-right">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h5 class="text-right">Profil Bilgileri</h5>
+                    </div>
                     <div class="row mt-2">
                         <div class="col-md-6">
                             <label asp-for="FirstName" class="labels">Adı :</label>
@@ -38,7 +39,7 @@
                             <span asp-validation-for="Email" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
-                            <label asp-for="Password"  class="labels">Şifre :</label>
+                            <label asp-for="Password" class="labels">Şifre :</label>
                             <input asp-for="Password" type="password" class="form-control" />
                             <span asp-validation-for="Password" class="text-danger"></span>
                         </div>
@@ -54,7 +55,7 @@
                         </div>
                         <div class="col-md-12">
                             <label asp-for="PhoneNumber" class="labels">Telefon No :</label>
-                            <input asp-for="PhoneNumber"  class="form-control" />
+                            <input asp-for="PhoneNumber" class="form-control" />
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
@@ -95,24 +96,24 @@
 
                     </div>
                     <div class="mt-5 text-center"> <input type="submit" class="btn btn-primary profile-button" /></div>
-                </form>
+                </div>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center experience"><span><h5>Açıklamalar ve Hobiler</h5></span></div><br>
-                <div class="col-md-12">
-                    <label asp-for="UserDescription" class="labels">Açıklama :</label>
-                    <textarea asp-for="UserDescription" class="form-control"></textarea>
-                    <span asp-validation-for="UserDescription" class="text-danger"></span>
-                </div><br>
-                <div class="col-md-12">
-                    <label asp-for="Hobies" class="labels">Hobiler :</label>
-                    <textarea asp-for="Hobies" class="form-control"> </textarea>
-                    <span asp-validation-for="Hobies" class="text-danger"></span>
-                </div> 
+            <div class="col-md-4">
+                <div class="p-3 py-5">
+                    <div class="d-flex justify-content-between align-items-center experience"><span><h5>Açıklamalar ve Hobiler</h5></span></div><br>
+                    <div class="col-md-12">
+                        <label asp-for="UserDescription" class="labels">Açıklama :</label>
+                        <textarea asp-for="UserDescription" class="form-control"></textarea>
+                        <span asp-validation-for="UserDescription" class="text-danger"></span>
+                    </div><br>
+                    <div class="col-md-12">
+                        <label asp-for="Hobies" class="labels">Hobiler :</label>
+                        <textarea asp-for="Hobies" class="form-control"> </textarea>
+                        <span asp-validation-for="Hobies" class="text-danger"></span>
+                    </div>
+                </div>
             </div>
-        </div>
+</form>
     </div>
 </div>
 

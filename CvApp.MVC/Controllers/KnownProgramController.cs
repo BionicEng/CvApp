@@ -43,7 +43,7 @@ namespace CvApp.MVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm] KnownProgramDTO knownProgram, [FromForm] IFormFile formFile)
+        public async Task<IActionResult> CreateAsync([FromForm] KnownProgramDTO knownProgram, [FromForm] IFormFile? formFile)
         {
             if (knownProgram == null)
             {
@@ -54,13 +54,19 @@ namespace CvApp.MVC.Controllers
             if (!ModelState.IsValid)
             {
                 ViewBag.ErrorMessage = "Lütfen formu eksiksiz şekilde doldurun!.";
-                return View();
+                return BadRequest(ModelState);
 
             }
             var knownProgramEntity = _mapper.Map<KnownProgramEntity>(knownProgram);
-            var uploadResponse = await _fileManager.UploadFileAsync(formFile);
-            knownProgramEntity.fileName = uploadResponse.FileName;
-            knownProgramEntity.filePath = uploadResponse.FilePath;
+            if (formFile != null)
+            {
+                var uploadResponse = await _fileManager.UploadFileAsync(formFile);
+                knownProgramEntity.fileName = uploadResponse.FileName;
+                knownProgramEntity.filePath = uploadResponse.FilePath;
+
+            }
+                
+            
             var result = _knownRepo.Add(knownProgramEntity);
             ViewBag.SuccessMessage = "Program bilgisi başarılı şekilde eklendi.";
             _logger.LogInformation("Program bilgisi başarılı şekilde eklendi.");

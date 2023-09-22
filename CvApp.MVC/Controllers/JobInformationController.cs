@@ -43,7 +43,7 @@ namespace CvApp.MVC.Controllers
             return View();
         }
         [HttpPost]
-        public async Task<IActionResult> CreateAsync([FromForm] JobInformationDTO jobInformation, [FromForm] IFormFile formFile)
+        public async Task<IActionResult> CreateAsync([FromForm] JobInformationDTO jobInformation, [FromForm] IFormFile? formFile)
         {
             if (jobInformation == null)
             {
@@ -60,9 +60,15 @@ namespace CvApp.MVC.Controllers
             var JobInfoCount = _jobInformationRepo.Get().Count();
             var jobInformationEnt = _mapper.Map<JobInformationEntity>(jobInformation);
             jobInformationEnt.CompanyId = JobInfoCount+1;
-            var uploadResponse = await _fileManager.UploadFileAsync(formFile);
-            jobInformationEnt.fileName = uploadResponse.FileName;
-            jobInformationEnt.filePath = uploadResponse.FilePath;
+
+            if (formFile != null)
+            {
+                var uploadResponse = await _fileManager.UploadFileAsync(formFile);
+                jobInformationEnt.fileName = uploadResponse.FileName;
+                jobInformationEnt.filePath = uploadResponse.FilePath;
+
+            }
+            
             var result = _jobInformationRepo.Add(jobInformationEnt);
             ViewBag.SuccessMessage = "Eğitim bilgisi başarılı şekilde eklendi.";
             _logger.LogInformation("Eğitim bilgisi başarılı şekilde eklendi.");

@@ -16,7 +16,7 @@ namespace CvApp.Models.DTO
         {
             [Key]
             [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-            public int? CertificateId { get; set; }
+            public int CertificateId { get; set; }
             [Required(ErrorMessage = "Sertifika adı gereklidir.")]
             public string CertificateName { get; set; } = string.Empty;
             public string fileName { get; set; } = string.Empty;
@@ -26,10 +26,13 @@ namespace CvApp.Models.DTO
             [Required(ErrorMessage = "Sertifika alınan kurum bilgisi gereklidir.")]
             public string CertificateCompany { get; set; } = string.Empty;
             public DateTime? CertificateDate { get; set; }
-            public int? PersonId { get; set; }
+            public int PersonId { get; set; }
 
             public string filePath { get; set; } = string.Empty;
-
+            public CertificateDTO()
+            {
+                PersonId = 1;
+            }
 
 
 

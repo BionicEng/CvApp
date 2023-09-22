@@ -24,11 +24,11 @@ namespace CvApp.Data.Migrations
 
             modelBuilder.Entity("CvApp.Data.Entities.CertificateEntity", b =>
                 {
-                    b.Property<int?>("CertificateId")
+                    b.Property<int>("CertificateId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int?>("CertificateId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CertificateId"));
 
                     b.Property<string>("CertificateCompany")
                         .IsRequired()
@@ -38,7 +38,6 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CertificateDescription")
-                        .IsRequired()
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
@@ -46,15 +45,13 @@ namespace CvApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PersonId")
+                    b.Property<int>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("CertificateId");
@@ -72,32 +69,26 @@ namespace CvApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("EducationId"));
 
-                    b.Property<decimal>("DegreeNote")
+                    b.Property<decimal?>("DegreeNote")
                         .HasColumnType("decimal(18,2)");
 
                     b.Property<string>("Department")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("EducationDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EducationLanguage")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("EducationType")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("EndTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("FacultyName")
-                        .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
@@ -116,11 +107,9 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(50)");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("EducationId");
@@ -138,13 +127,11 @@ namespace CvApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JobId"));
 
-                    b.Property<DateTime>("CompanyCreatedTime")
+                    b.Property<DateTime?>("CompanyCreatedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CompanyDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int?>("CompanyId")
                         .HasColumnType("int");
@@ -167,41 +154,35 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Country")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndTime")
+                    b.Property<DateTime?>("EndTime")
                         .HasColumnType("datetime2");
 
-                    b.Property<bool>("IsContinue")
+                    b.Property<bool?>("IsContinue")
                         .HasColumnType("bit");
 
                     b.Property<string>("JobDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("JobTitle")
                         .IsRequired()
                         .HasMaxLength(50)
                         .HasColumnType("nvarchar(50)");
 
-                    b.Property<int>("PersonId")
+                    b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
-                    b.Property<DateTime>("StartedTime")
+                    b.Property<DateTime?>("StartedTime")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("WorkingMethod")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("JobId");
@@ -219,26 +200,23 @@ namespace CvApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProgramId"));
 
-                    b.Property<int>("PersonId")
+                    b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("ProgramDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProgramName")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .HasColumnType("nvarchar(50)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("programStock")
+                        .HasColumnType("int");
 
                     b.HasKey("ProgramId");
 
@@ -255,11 +233,10 @@ namespace CvApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("LanguageId"));
 
-                    b.Property<int>("LanguageCount")
+                    b.Property<int?>("LanguageCount")
                         .HasColumnType("int");
 
                     b.Property<string>("LanguageDescription")
-                        .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
@@ -273,15 +250,13 @@ namespace CvApp.Data.Migrations
                         .HasMaxLength(15)
                         .HasColumnType("nvarchar(15)");
 
-                    b.Property<int>("PersonId")
+                    b.Property<int?>("PersonId")
                         .HasColumnType("int");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("LanguageId");
@@ -310,6 +285,36 @@ namespace CvApp.Data.Migrations
                         });
                 });
 
+            modelBuilder.Entity("CvApp.Data.Entities.ServiceEntity", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PersonId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("fileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("filePath")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("ServicesTable");
+                });
+
             modelBuilder.Entity("CvApp.Data.Entities.UserEntity", b =>
                 {
                     b.Property<int>("UserId")
@@ -318,14 +323,13 @@ namespace CvApp.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
 
-                    b.Property<DateTime>("BirtDay")
+                    b.Property<DateTime?>("BirtDay")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<DateTime?>("CreatedAt")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")
@@ -334,11 +338,9 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Gender")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Hobies")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("LastName")
@@ -347,10 +349,9 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(20)");
 
                     b.Property<string>("Location")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("MSwasDone")
+                    b.Property<bool?>("MSwasDone")
                         .HasColumnType("bit");
 
                     b.Property<string>("Password")
@@ -359,7 +360,6 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("PasswordConfirm")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("PersonId")
@@ -374,16 +374,13 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UK")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("UserCount")
+                    b.Property<int?>("UserCount")
                         .HasColumnType("int");
 
                     b.Property<string>("UserDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UserName")
                         .IsRequired()
@@ -391,11 +388,9 @@ namespace CvApp.Data.Migrations
                         .HasColumnType("nvarchar(8)");
 
                     b.Property<string>("fileName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("filePath")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("UserId");
@@ -409,7 +404,9 @@ namespace CvApp.Data.Migrations
                 {
                     b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
                         .WithMany("Certificates")
-                        .HasForeignKey("PersonId");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Person");
                 });
@@ -425,9 +422,7 @@ namespace CvApp.Data.Migrations
                 {
                     b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
                         .WithMany("JobInformation")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonId");
 
                     b.Navigation("Person");
                 });
@@ -436,9 +431,7 @@ namespace CvApp.Data.Migrations
                 {
                     b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
                         .WithMany("KnownPrograms")
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("PersonId");
 
                     b.Navigation("Person");
                 });
@@ -447,6 +440,15 @@ namespace CvApp.Data.Migrations
                 {
                     b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
                         .WithMany("Languages")
+                        .HasForeignKey("PersonId");
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("CvApp.Data.Entities.ServiceEntity", b =>
+                {
+                    b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
+                        .WithMany()
                         .HasForeignKey("PersonId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();

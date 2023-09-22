@@ -21,6 +21,7 @@ namespace CvApp.Business.MapProfiles
             CreateMap<LanguageEntity, LanguageDTO>().ReverseMap();
             CreateMap<PersonEntity, PersonDTO>().ReverseMap();
             CreateMap<UserEntity, UserDTO>().ReverseMap();
+            CreateMap<ServiceEntity, ServiceDTO>().ReverseMap();
         }
     }
 }

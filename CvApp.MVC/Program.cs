@@ -6,6 +6,7 @@ using CvApp.Data.DbContexts;
 using CvApp.Data.Entities;
 using CvApp.Data.Services.Abstract;
 using CvApp.Data.Services.Concrete;
+using CvApp.Models.DTO;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
@@ -75,6 +76,7 @@ builder.Services.AddScoped<IRepositoryManager<KnownProgramEntity>, Repository<Kn
 builder.Services.AddScoped<IRepositoryManager<LanguageEntity>, Repository<LanguageEntity>>();
 builder.Services.AddScoped<IRepositoryManager<PersonEntity>, Repository<PersonEntity>>();
 builder.Services.AddScoped<IRepositoryManager<UserEntity>, Repository<UserEntity>>();
+builder.Services.AddScoped<IRepositoryManager<ServiceEntity>, Repository<ServiceEntity>>();
 
 var app = builder.Build();
 
