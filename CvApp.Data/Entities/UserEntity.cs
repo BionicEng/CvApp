@@ -48,6 +48,7 @@ namespace CvApp.Data.Entities
         public int PersonId { get; set; }
         public PersonEntity? Person { get; set; }
         public string Roles { get; set; } = string.Empty;
+        public string? Adress { get;set; } = string.Empty;
         public UserEntity()
         {
             CreatedAt = DateTime.Now;

@@ -50,6 +50,7 @@ namespace CvApp.Models.DTO
         public string Hobies { get; set; } = string.Empty;
         public int PersonId { get; set; }
         public string Roles { get; set; } = string.Empty;
+        public string? Adress { get; set; } = string.Empty;
         public UserDTO()
         {
             CreatedAt = DateTime.Now;

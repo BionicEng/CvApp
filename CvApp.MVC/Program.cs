@@ -52,7 +52,6 @@ builder.Services.AddAuthentication(options =>
         ValidateIssuerSigningKey = true,
         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
     };
-    //options.ForwardDefault = "/auth/login";
     options.Events = new JwtBearerEvents
     {
         OnMessageReceived = async context =>
@@ -62,8 +61,8 @@ builder.Services.AddAuthentication(options =>
             {
                 return;
             }
-            context.Token = token;
-            //context.Request.Headers["Authorization"] = "Bearer " + token;
+           // context.Token = token;
+            // context.Request.Headers["Authorization"] = "Bearer " + token;
         }
     };
 });
@@ -77,6 +76,7 @@ builder.Services.AddScoped<IRepositoryManager<LanguageEntity>, Repository<Langua
 builder.Services.AddScoped<IRepositoryManager<PersonEntity>, Repository<PersonEntity>>();
 builder.Services.AddScoped<IRepositoryManager<UserEntity>, Repository<UserEntity>>();
 builder.Services.AddScoped<IRepositoryManager<ServiceEntity>, Repository<ServiceEntity>>();
+builder.Services.AddScoped<IRepositoryManager<MessageEntity>, Repository<MessageEntity>>();
 
 var app = builder.Build();
 
@@ -94,7 +94,7 @@ app.UseJWTDirectToLogin();
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 
-//app.UseCustomAuthorization();
+app.UseCustomAuthorization();
 
 app.UseRouting();
 app.UseAuthentication();
