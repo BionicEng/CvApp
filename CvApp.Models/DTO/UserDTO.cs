@@ -51,6 +51,11 @@ namespace CvApp.Models.DTO
         public int PersonId { get; set; }
         public string Roles { get; set; } = string.Empty;
         public string? Adress { get; set; } = string.Empty;
+        public string? TwitterLink { get; set; } = string.Empty;
+        public string? FacebookLink { get; set; } = string.Empty;
+        public string? InstagramLınk { get; set; } = string.Empty;
+        public string? SkypeLınk { get; set; } = string.Empty;
+        public string? LinkedinLink { get; set; } = string.Empty;
         public UserDTO()
         {
             CreatedAt = DateTime.Now;

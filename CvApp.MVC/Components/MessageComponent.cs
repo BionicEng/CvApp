@@ -18,12 +18,9 @@ namespace CvApp.MVC.Components
             _logger = logger;
             _mapper = mapper;
         }
-
         public IViewComponentResult Invoke()
         {
-            var Messages = _repositoryManager.Get().ToList();
-            var MessagesDTO = _mapper.Map<List<MessageEntity>>(Messages);
-            return View(MessagesDTO);
+            return View();
         }
     }
 }

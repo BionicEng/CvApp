@@ -19,6 +19,7 @@ namespace CvApp.Data.DbContexts
         public DbSet<PersonEntity> PersonsTable { get; set; }
         public DbSet<UserEntity> UsersTable { get; set; }
         public DbSet<ServiceEntity> ServicesTable { get; set; }
+        public DbSet<MessageEntity> MessagesTable { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -27,6 +28,37 @@ namespace CvApp.Data.DbContexts
             {
                 Id = 1
             };
+            var users = new List<UserEntity>
+            {
+                new UserEntity
+                {
+                    UserId = 1,
+                    FirstName = "John",
+                    LastName = "Doe",
+                    Email = "john@example.com",
+                    Password = "123456",
+                    UserName = "johndoe",
+                    PhoneNumber = "1234567890",
+                    UserDescription = "Sample description",
+                    BirtDay = new DateTime(1990, 1, 1),
+                    Location = "Sample Location",
+                    Gender = "Male",
+                    MSwasDone = true,
+                    Hobies = "Sample Hobbies",
+                    Roles = "User",
+                    Adress = "Sample Address",
+                    TwitterLink = "https://twitter.com/johndoe",
+                    FacebookLink = "https://facebook.com/johndoe",
+                    InstagramLınk = "https://instagram.com/johndoe",
+                    SkypeLınk = "https://skype.com/johndoe",
+                    LinkedinLink = "https://linkedin.com/johndoe",
+                    fileName = "1684652602676.jpg@"
+                },
+                // Diğer kullanıcılar buraya eklenir...
+            };
+
+            modelBuilder.Entity<UserEntity>().HasData(users);
+
 
             modelBuilder.Entity<PersonEntity>().HasData(person1);
 

@@ -59,6 +59,11 @@
                             <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                         </div>
                         <div class="col-md-12">
+                            <label asp-for="Adress" class="labels">Adres :</label>
+                            <input asp-for="Adress" class="form-control" />
+                            <span asp-validation-for="Adress" class="text-danger"></span>
+                        </div>
+                        <div class="col-md-12">
                             <label asp-for="BirtDay" class="labels">Doğum Tarihi :</label>
                             <input asp-for="BirtDay" type="date" class="form-control" />
                             <span asp-validation-for="BirtDay" class="text-danger"></span>
@@ -111,11 +116,34 @@
                         <textarea asp-for="Hobies" class="form-control"> </textarea>
                         <span asp-validation-for="Hobies" class="text-danger"></span>
                     </div>
+                    <div class="col-md-12">
+                        <label asp-for="TwitterLink" class="labels">Twitter :</label>
+                        <input asp-for="TwitterLink" class="form-control" />
+                        <span asp-validation-for="TwitterLink" class="text-danger"></span>
+                        </div>
+                    <div class="col-md-12">
+                        <label asp-for="FacebookLink" class="labels">Facebook :</label>
+                        <input asp-for="FacebookLink" class="form-control" />
+                        <span asp-validation-for="FacebookLink" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="InstagramLınk" class="labels">Instagram :</label>
+                        <input asp-for="InstagramLınk" class="form-control" />
+                        <span asp-validation-for="InstagramLınk" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="SkypeLınk" class="labels">Skype :</label>
+                        <input asp-for="SkypeLınk" class="form-control" />
+                        <span asp-validation-for="SkypeLınk" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-12">
+                        <label asp-for="LinkedinLink" class="labels">Linkedin :</label>
+                        <input asp-for="LinkedinLink" class="form-control" />
+                        <span asp-validation-for="LinkedinLink" class="text-danger"></span>
+                    </div>
                 </div>
             </div>
 </form>
-    </div>
-</div>
 
 @section Scripts
     {

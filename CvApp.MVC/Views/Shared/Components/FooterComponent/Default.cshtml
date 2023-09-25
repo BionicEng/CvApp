@@ -1,0 +1,40 @@
+﻿@using CvApp.Models.DTO;
+@model UserDTO
+<footer id="footer">
+    <div class="container">
+        <h3>@Model.FirstName @Model.LastName</h3>
+        <p>Çalışmak hayat, düşünmek ışıktır. Victor Hugo</p>
+        <div class="social-links">
+            @if(Model.TwitterLink is not null)
+            {
+                <a href="@Model.TwitterLink" class="twitter"><i class="bx bxl-twitter"></i></a>
+            }
+            @if (Model.FacebookLink is not null)
+            {
+            <a href="@Model.FacebookLink" class="facebook"><i class="bx bxl-facebook"></i></a>
+            }
+            @if (Model.InstagramLınk is not null)
+            {
+            <a href="@Model.InstagramLınk" class="instagram"><i class="bx bxl-instagram"></i></a>
+            }
+            @if (Model.SkypeLınk is not null)
+            {
+            <a href="@Model.SkypeLınk" class="google-plus"><i class="bx bxl-skype"></i></a>
+            }
+            @if (Model.LinkedinLink is not null)
+            {
+            <a href="@Model.LinkedinLink" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            }
+        </div>
+        <div class="copyright">
+            &copy; Copyright <strong><span>MyResume</span></strong>. All Rights Reserved
+        </div>
+        <div class="credits">
+            <!-- All the links in the footer should remain intact. -->
+            <!-- You can delete the links only if you purchased the pro version. -->
+            <!-- Licensing information: [license-url] -->
+            <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/free-html-bootstrap-template-my-resume/ -->
+            Designed by <a href="https://bootstrapmade.com/">BionicSoftware</a>
+        </div>
+    </div>
+</footer><!-- End Footer -->

@@ -49,6 +49,11 @@ namespace CvApp.Data.Entities
         public PersonEntity? Person { get; set; }
         public string Roles { get; set; } = string.Empty;
         public string? Adress { get;set; } = string.Empty;
+        public string? TwitterLink { get; set; } = string.Empty;
+        public string? FacebookLink { get; set; } = string.Empty;
+        public string? InstagramLınk { get; set; } = string.Empty;
+        public string? SkypeLınk { get; set; } = string.Empty;
+        public string? LinkedinLink { get; set; } = string.Empty;
         public UserEntity()
         {
             CreatedAt = DateTime.Now;

@@ -109,6 +109,12 @@ namespace CvApp.MVC.Controllers
             entity.UK = userDTO.UK;
             entity.Gender = userDTO.Gender;
             entity.MSwasDone = userDTO.MSwasDone;
+            entity.TwitterLink = userDTO.TwitterLink;
+            entity.FacebookLink = userDTO.FacebookLink;
+            entity.InstagramLınk = userDTO.InstagramLınk;
+            entity.SkypeLınk = userDTO.SkypeLınk;
+            entity.Adress = userDTO.Adress;
+            entity.LinkedinLink = userDTO.LinkedinLink;
             var uploadResponse = await _fileManager.UploadFileAsync(formFile);
             entity.fileName = uploadResponse.FileName;
             entity.filePath = uploadResponse.FilePath;

@@ -4,60 +4,103 @@
 <section id="resume" class="resume">
     <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-            <h2>Özgeçmiş</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
         <div class="row">
+            <h3 class="resume-title">Kariyer Tüneli</h3>
             <div class="col-lg-6">
-                <h3 class="resume-title">Staj</h3>
-                <div class="resume-item pb-0">
-                    <h4>Brandon Johnson</h4>
-                    <p><em>Innovative and deadline-driven Graphic Designer with 3+ years of experience designing and developing user-centered digital/print marketing material from initial concept to final, polished deliverable.</em></p>
-                    <ul>
-                        <li>Portland par 127,Orlando, FL</li>
-                        <li>(123) 456-7891</li>
-                        <li>alice.barkley@example.com</li>
-                    </ul>
-                </div>
-
-                @await Component.InvokeAsync("EducationComponent")
-            </div>
-            <div class="col-lg-6">
-                <h3 class="resume-title">Professional Experience</h3>
-                @foreach (var item in Model)
+                @for (int i = 0; i < Model.Count / 2; i++)
                 {
+                    <img src="~/Uploads/@Model[i].fileName" style="height:500px" />
                     <div class="resume-item">
-                        <h4>@item.JobTitle</h4>
-                        <h4>@item.CompanyName - @item.CompanySector </h4>
-                        <h6>Kuruluş Yılı : @item.CompanyCreatedTime.Year</h6>
+                        <h4>@Model[i].JobTitle</h4>
+                        <h4>@Model[i].CompanyName - @Model[i].CompanySector </h4>
+                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year</h6>
                         <h5>
-                            @item.StartedTime.Year - @{
-                                int workingYears = @item.EndTime.Year - @item.StartedTime.Year;
-                                if (!item.IsContinue)
+                            @{
+                                int workingYears = @Model[i].EndTime.Year - @Model[i].StartedTime.Year;
+                                int workingMonths = @Model[i].EndTime.Month - @Model[i].StartedTime.Month;
+
+                                if (workingMonths <= 0)
                                 {
-                                    @item.EndTime.Year  <span> <br class="mb-2">
-                                     <h6>(@workingYears) Yıl</h6>
-                                    </span>
+                                    workingYears--;
+                                    workingMonths += 12;
                                 }
 
+                                string workingTimeText = $"{workingYears} Yıl {workingMonths} Ay";
+
+                                if (!Model[i].IsContinue)
+                                {
+
+
+                                    <span>
+                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy")</h6>
+                                        <h6>(@workingTimeText)</h6>
+                                    </span>
+                                }
                                 else
                                 {
-                                    <span> ... </span>
+                                    <h6><span> @Model[i].StartedTime.ToString("dd/MM/yyyy") - ... </span></h6>
                                 }
                             }
                         </h5>
-                        <p><em>@item.CompanyLocation - @item.Country  </em></p>
+                        <p><em>@Model[i].CompanyLocation - @Model[i].Country  </em></p>
                         <ul>
-                            <li>@item.WorkingMethod - @item.CompanyType</li>
-                            <li>@item.JobDescription</li>
-                            <li>@item.CompanyDescription</li>
+                            <li>@Model[i].WorkingMethod - @Model[i].CompanyType</li>
+                            <li>@Model[i].JobDescription</li>
+                            <li>@Model[i].CompanyDescription</li>
                         </ul>
                     </div>
-
                 }
-               
+
+            </div>
+            <div class="col-lg-6">
+                @for (int i = Model.Count / 2; i < Model.Count; i++)
+                {
+                    <div class="resume-item">
+                        <h4>@Model[i].JobTitle</h4>
+                        <h4>@Model[i].CompanyName - @Model[i].CompanySector </h4>
+                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year</h6>
+                        <h5>
+                            @{
+                                int workingYears = @Model[i].EndTime.Year - @Model[i].StartedTime.Year;
+                                int workingMonths = @Model[i].EndTime.Month - @Model[i].StartedTime.Month;
+                                string workingTimeText = string.Empty;
+                                if (workingMonths <= 0)
+                                {
+                                    workingYears--;
+                                    workingMonths += 12;
+                                }
+                                if (workingYears != 0)
+                                {
+                                    workingTimeText = $"{workingYears} Yıl {workingMonths} Ay";
+                                }
+                                else
+                                {
+                                    workingTimeText = $"{workingMonths} Ay";
+                                }
+
+
+                                if (!Model[i].IsContinue)
+                                {
+                                    <span>
+                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy")</h6>
+                                        <h6>(@workingTimeText)</h6>
+                                    </span>
+                                }
+                                else
+                                {
+                                    <h6><span> @Model[i].StartedTime.ToString("dd/MM/yyyy") - ... </span></h6>
+                                }
+                            }
+                        </h5>
+                        <p><em>@Model[i].CompanyLocation - @Model[i].Country  </em></p>
+                        <ul>
+                            <li>@Model[i].WorkingMethod - @Model[i].CompanyType</li>
+                            <li>@Model[i].JobDescription</li>
+                            <li>@Model[i].CompanyDescription</li>
+                        </ul>
+                    </div>
+                }
+
             </div>
         </div>
 

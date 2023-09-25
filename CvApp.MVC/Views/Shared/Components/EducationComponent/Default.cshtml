@@ -1,14 +1,43 @@
 ﻿@using CvApp.Models.DTO;
 @model List<EducationDTO>
+<div class="section-title">
+    <h2>Özgeçmiş</h2>
+    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+</div>
 
-<h3 class="resume-title">Eğitim </h3>
-@foreach (var item in Model)
-{
-    <div class="resume-item">
-        <h5>@item.StartedTime.Year - @item.EndTime.Year</h5>
-        <p><em>@item.Department - @item.DegreeNote </em></p>
-        <h4>@item.UniversityName - @item.FacultyName</h4>
-        <p>@item.EducationDescription</p>
+<section id="resume" class="resume">
+    <div class="container" data-aos="fade-up">
+
+
+
+        <div class="row">
+            <h3 class="resume-title">Eğitim Bilgileri</h3>
+            <div class="col-lg-6">
+                @for (int i = 0; i < Model.Count/2; i++)
+                {
+                    <div class="resume-item">
+                        <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
+                        <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
+                        <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
+                        <p>@Model[i].EducationDescription</p>
+                    </div>
+
+                }
+
+            </div>
+            <div class="col-lg-6">
+                @for (int i = Model.Count / 2; i < Model.Count; i++)
+                {
+                    <div class="resume-item">
+                        <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
+                        <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
+                        <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
+                        <p>@Model[i].EducationDescription</p>
+                    </div>
+                }
+
+            </div>
+        </div>
+
     </div>
-
-}
+</section>

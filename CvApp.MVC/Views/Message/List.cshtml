@@ -1,0 +1,33 @@
+﻿@using CvApp.Models.DTO;
+@model List<MessageDTO>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Gönderen Adı</th>
+            <th scope="col">Gönderen Maili</th>
+            <th scope="col">Konu</th>
+            <th scope="col">Mesaj</th>
+            <th scope="col">İşlemler</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.Id</th>
+                <td>@item.SenderName</td>
+                <td>@item.SenderEmail</td>
+                <td>@item.SenderSubject</td>
+                <td>@item.SenderMessage</td>
+                <td>                 
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.Id" asp-controller="Message">Sil</a>
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

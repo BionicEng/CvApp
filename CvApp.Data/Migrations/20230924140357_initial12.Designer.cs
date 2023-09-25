@@ -4,6 +4,7 @@ using CvApp.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvApp.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230924140357_initial12")]
+    partial class initial12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -266,36 +269,6 @@ namespace CvApp.Data.Migrations
                     b.ToTable("LanguagesTable");
                 });
 
-            modelBuilder.Entity("CvApp.Data.Entities.MessageEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("PersonId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("SenderEmail")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SenderMessage")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SenderName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SenderSubject")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PersonId");
-
-                    b.ToTable("MessagesTable");
-                });
-
             modelBuilder.Entity("CvApp.Data.Entities.PersonEntity", b =>
                 {
                     b.Property<int>("Id")
@@ -365,9 +338,6 @@ namespace CvApp.Data.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("FacebookLink")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("FirstName")
                         .IsRequired()
                         .HasMaxLength(20)
@@ -379,16 +349,10 @@ namespace CvApp.Data.Migrations
                     b.Property<string>("Hobies")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("InstagramLınk")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("LastName")
                         .IsRequired()
                         .HasMaxLength(20)
                         .HasColumnType("nvarchar(20)");
-
-                    b.Property<string>("LinkedinLink")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Location")
                         .HasColumnType("nvarchar(max)");
@@ -413,12 +377,6 @@ namespace CvApp.Data.Migrations
 
                     b.Property<string>("Roles")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SkypeLınk")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("TwitterLink")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UK")
@@ -489,17 +447,6 @@ namespace CvApp.Data.Migrations
                     b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
                         .WithMany("Languages")
                         .HasForeignKey("PersonId");
-
-                    b.Navigation("Person");
-                });
-
-            modelBuilder.Entity("CvApp.Data.Entities.MessageEntity", b =>
-                {
-                    b.HasOne("CvApp.Data.Entities.PersonEntity", "Person")
-                        .WithMany()
-                        .HasForeignKey("PersonId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
 
                     b.Navigation("Person");
                 });
