@@ -1,0 +1,52 @@
+﻿@using CvApp.Models.DTO;
+
+@model ReferanceDTO
+@{
+    ViewData["Title"] = "Update";
+}
+
+<h1>Update</h1>
+
+<h4>Referans</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Update" asp-controller="Referance" method="post" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceName" class="control-label">Referans Adı :</label>
+                <input asp-for="ReferanceName" class="form-control" />
+                <span asp-validation-for="ReferanceName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceTitle" class="control-label">Referans Title :</label>
+                <textarea asp-for="ReferanceTitle" class="form-control"></textarea>
+                <span asp-validation-for="ReferanceTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceDescription" class="control-label">Açıklama :</label>
+                <input asp-for="ReferanceDescription" class="form-control" />
+                <span asp-validation-for="ReferanceDescription" class="text-danger"></span>
+            </div>          
+            <div>
+                <div class="form-group">
+                    <label for="formFile">Dosya Seçiniz</label>
+                    <input type="file" class="control-label" id="formFile" name="formFile" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary" />
+                <a asp-action="List" class="btn btn-secondary">Back to List</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="List">Back to List</a>
+</div>
+

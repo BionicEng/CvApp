@@ -1,0 +1,55 @@
+﻿@using CvApp.Models.DTO;
+
+@model ReferanceDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>Referans Ekle</h4>
+<partial name="Partials/ViewMessages" />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Create" asp-controller="Referance" method="post" enctype="multipart/form-data">
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceName" class="control-label">Referans Adı :</label>
+                <input asp-for="ReferanceName" class="form-control" />
+                <span asp-validation-for="ReferanceName" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceTitle" class="control-label">Referans Title :</label>
+                <textarea asp-for="ReferanceTitle" class="form-control"></textarea>
+                <span asp-validation-for="ReferanceTitle" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="ReferanceDescription" class="control-label">Açıklama :</label>
+                <input asp-for="ReferanceDescription" class="form-control" />
+                <span asp-validation-for="ReferanceDescription" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label for="formFile">Referans Fotoğrafı :</label>
+                <input type="file" class="form-control" id="formFile" name="formFile" />
+            </div>
+
+            <div class="form-group mt-2">
+                <input type="submit" class="btn btn-primary"  <i class="fa-solid fa-xmark"></i> 
+
+                <a asp-action="List" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </form>
+        @section Scripts
+        {
+            <script>
+
+            </script>
+        }
+       
+
+
+    </div>
+</div>

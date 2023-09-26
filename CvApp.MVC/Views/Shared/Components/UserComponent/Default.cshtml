@@ -1,6 +1,10 @@
 ﻿@using CvApp.Models.DTO;
 @model UserDTO
 
+
+@{
+    var age = DateTime.Now.Year - Model.BirtDay.Year;
+}
 <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
@@ -10,12 +14,12 @@
 
         <div class="row">
             <div class="col-lg-4">
-                <img src="~/Uploads/@Model.fileName" class="img-fluid"/>
+                <img src="~/Uploads/@Model.fileName" class="img-fluid" />
             </div>
             <div class="col-lg-8 pt-4 pt-lg-0 content">
                 <h3>Elektrik ve Elektronik Mühendisi</h3>
                 <p class="fst-italic">
-                    Full Stack Devoloper 
+                    Full Stack Devoloper
                 </p>
                 <div class="row">
                     <div class="col-lg-6">
@@ -23,7 +27,7 @@
                             <li><i class="bi bi-chevron-right"></i> <strong>Website:</strong> <span>www.idrisgultekin.com</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Telefon:</strong> <span>+@Model.PhoneNumber</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>E-Mail:</strong> <span>@Model.Email</span></li>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Doğum Tarihi:</strong> <span>@Model.BirtDay</span></li>
+                            <li><i class="bi bi-chevron-right"></i> <strong>Doğum Tarihi:</strong> <span>@Model.BirtDay.ToString("dd/MM/yyyy")</span></li>
                         </ul>
                     </div>
                     <div class="col-lg-6">
@@ -31,7 +35,12 @@
                             <li><i class="bi bi-chevron-right"></i> <strong>Lokasyon:</strong> <span>@Model.Location </span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Uyruk:</strong> <span>@Model.UK</span></li>
                             <li><i class="bi bi-chevron-right"></i> <strong>Cinsiyet:</strong> <span>@Model.Gender</span></li>
-                            <li><i class="bi bi-chevron-right"></i> <strong>Yaş:</strong> <span>@Model.BirtDay</span></li>
+                            <li>
+                                <i class="bi bi-chevron-right"></i> <strong>Yaş:</strong>
+                                <span>
+                                    @age
+                                </span>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -43,14 +52,12 @@
 
     </div>
 </section><!-- End About Section -->
-
 @section Css
-{
+    {
     <style>
-        ps{
-            text-align :right;
+        ps {
+            text-align: right;
         }
-
 
     </style>
 }

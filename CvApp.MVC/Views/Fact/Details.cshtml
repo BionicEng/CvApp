@@ -1,0 +1,20 @@
+﻿@using CvApp.Models.DTO;
+@model FactDTO
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Eğitim Bilgisi Detayları</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group">
+            <li class="list-group-item"><strong>Özellik :</strong> @Model.PropertyName</li>
+            <li class="list-group-item"><strong>Adet:</strong> @Model.PropertyStock</li>
+            <li class="list-group-item"><strong>Açıklama:</strong> @Model.Description</li>
+        </ul>
+    </div>
+    <div class="card-footer">
+    </div>
+</div>

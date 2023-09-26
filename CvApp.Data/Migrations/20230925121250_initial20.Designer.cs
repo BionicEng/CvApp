@@ -4,6 +4,7 @@ using CvApp.Data.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CvApp.Data.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20230925121250_initial20")]
+    partial class initial20
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,7 +37,7 @@ namespace CvApp.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("CertificateDate")
+                    b.Property<DateTime?>("CertificateDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("CertificateDescription")
@@ -513,7 +516,7 @@ namespace CvApp.Data.Migrations
                             UserId = 1,
                             Adress = "Sample Address",
                             BirtDay = new DateTime(1990, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            CreatedAt = new DateTime(2023, 9, 25, 15, 50, 12, 234, DateTimeKind.Local).AddTicks(9875),
+                            CreatedAt = new DateTime(2023, 9, 25, 15, 12, 50, 242, DateTimeKind.Local).AddTicks(7253),
                             Email = "john@example.com",
                             FacebookLink = "https://facebook.com/johndoe",
                             FirstName = "John",

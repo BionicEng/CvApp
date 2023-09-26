@@ -33,7 +33,7 @@
                 <th scope="row">@item.CertificateId</th>
                 <td>@item.CertificateName</td>
                 <td>@item.CertificateCompany</td>
-                <td>@item.CertificateDate</td>
+                <td>@item.CertificateDate.ToString("dd/MM/yyyy")</td>
                 <td>@item.fileName</td>
                 <td>
                     <a class="btn btn-success" asp-action="Details" asp-route-id="@item.CertificateId" asp-controller="Certificate">Detaylar</a>

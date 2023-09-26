@@ -1,0 +1,48 @@
+﻿@using CvApp.Models.DTO;
+@model FactDTO
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h4>İstatistiği Düzenle</h4>
+<partial name="Partials/ViewMessages" />
+
+<div class="row">
+    <div class="col-md-6">
+
+        <form asp-action="Update" asp-controller="Fact" method="post" enctype="multipart/form-data">
+
+            <div class="form-group mt-2">
+                <label asp-for="PropertyName" class="control-label">Özellik  :</label>
+                <input asp-for="PropertyName" class="form-control" />
+                <span asp-validation-for="PropertyName" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <label asp-for="PropertyStock" class="control-label">Adet :</label>
+                <input asp-for="PropertyStock" class="form-control" />
+                <span asp-validation-for="PropertyStock" class="text-danger"></span>
+            </div>
+
+            <div class="form-group mt-2">
+                <label asp-for="Description" class="control-label">Bölüm açıklaması :</label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-2">
+                <input type="submit" class="btn btn-primary"  <i class="fa-solid fa-xmark"></i>
+
+                <a asp-action="List" class="btn btn-secondary">Listeye Dön</a>
+            </div>
+        </form>
+        @section Scripts
+            {
+            <script>
+
+            </script>
+        }
+
+
+
+    </div>
+</div>

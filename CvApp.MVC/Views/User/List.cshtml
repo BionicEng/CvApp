@@ -45,8 +45,14 @@
                 <td>
                     <a class="btn btn-success" asp-action="Details" asp-route-id="@item.UserId" asp-controller="User">Detaylar</a>
                     <a class="btn btn-info" asp-action="Update" asp-route-id="@item.UserId" asp-controller="User">Düzenle</a>
+                    @if(Model.Count > 1)
+                    {
                     <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.UserId" asp-controller="User">Sil</a>
-                    <a asp-action="DownloadFile" asp-controller="User" asp-route-fileName="@item.fileName"> İndir</a>
+                        
+                    }
+
+                    
+                    <a class="btn btn-secondary" asp-action="DownloadFile" asp-controller="User" asp-route-fileName="@item.fileName"> İndir</a>
 
                 </td>
             </tr>

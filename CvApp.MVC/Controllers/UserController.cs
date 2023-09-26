@@ -45,6 +45,12 @@ namespace CvApp.MVC.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            var UserCount = _userRepo.Get().Count();
+            if (UserCount > 0)
+            {
+                return RedirectToAction("Update", "User", new { id = 5 });
+            }
+
             return View();
         }
         [HttpPost]
@@ -88,11 +94,17 @@ namespace CvApp.MVC.Controllers
         public async Task<IActionResult> Update([FromRoute] int id, [FromForm] UserDTO userDTO, [FromForm] IFormFile formFile)
         {
             var usersCount = _userRepo.Get().Count();
+           
             var entity = _userRepo.GetById(id).Data;
             entity.FirstName = userDTO.FirstName;
             entity.LastName = userDTO.LastName;
             entity.Email = userDTO.Email;
-            entity.Password = userDTO.Password;
+            if (userDTO.Password != null) 
+            {
+                entity.Password = userDTO.Password;
+
+            }
+
             entity.CreatedAt = userDTO.CreatedAt;
             entity.UserName = userDTO.UserName;
             entity.PhoneNumber = userDTO.PhoneNumber;
@@ -115,9 +127,13 @@ namespace CvApp.MVC.Controllers
             entity.SkypeLınk = userDTO.SkypeLınk;
             entity.Adress = userDTO.Adress;
             entity.LinkedinLink = userDTO.LinkedinLink;
+            if(formFile is not null) 
+            {
             var uploadResponse = await _fileManager.UploadFileAsync(formFile);
             entity.fileName = uploadResponse.FileName;
             entity.filePath = uploadResponse.FilePath;
+            }
+
             _userRepo.Update(entity);
             return RedirectToAction(nameof(List));
 

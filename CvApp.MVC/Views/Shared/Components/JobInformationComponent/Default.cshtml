@@ -9,11 +9,12 @@
             <div class="col-lg-6">
                 @for (int i = 0; i < Model.Count / 2; i++)
                 {
-                    <img src="~/Uploads/@Model[i].fileName" style="height:500px" />
                     <div class="resume-item">
+                        <img src="~/Uploads/@Model[i].fileName" style="height:50px" />
                         <h4>@Model[i].JobTitle</h4>
-                        <h4>@Model[i].CompanyName - @Model[i].CompanySector </h4>
-                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year</h6>
+                        <h4>  @Model[i].CompanyName  </h4>
+
+                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year - @Model[i].CompanySector</h6>
                         <h5>
                             @{
                                 int workingYears = @Model[i].EndTime.Year - @Model[i].StartedTime.Year;
@@ -29,11 +30,9 @@
 
                                 if (!Model[i].IsContinue)
                                 {
-
-
                                     <span>
-                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy")</h6>
-                                        <h6>(@workingTimeText)</h6>
+                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy") (@workingTimeText)</h6>
+                                        
                                     </span>
                                 }
                                 else
@@ -56,9 +55,10 @@
                 @for (int i = Model.Count / 2; i < Model.Count; i++)
                 {
                     <div class="resume-item">
+                        <img src="~/Uploads/@Model[i].fileName" style="height:50px" class="mb-2" />
                         <h4>@Model[i].JobTitle</h4>
-                        <h4>@Model[i].CompanyName - @Model[i].CompanySector </h4>
-                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year</h6>
+                        <h4>   @Model[i].CompanyName </h4>
+                        <h6>Kuruluş Yılı : @Model[i].CompanyCreatedTime.Year - @Model[i].CompanySector</h6>
                         <h5>
                             @{
                                 int workingYears = @Model[i].EndTime.Year - @Model[i].StartedTime.Year;
@@ -82,8 +82,7 @@
                                 if (!Model[i].IsContinue)
                                 {
                                     <span>
-                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy")</h6>
-                                        <h6>(@workingTimeText)</h6>
+                                        <h6>@Model[i].StartedTime.ToString("dd/MM/yyyy") - @Model[i].EndTime.ToString("dd/MM/yyyy") (@workingTimeText)</h6>
                                     </span>
                                 }
                                 else

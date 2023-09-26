@@ -20,6 +20,8 @@ namespace CvApp.Data.DbContexts
         public DbSet<UserEntity> UsersTable { get; set; }
         public DbSet<ServiceEntity> ServicesTable { get; set; }
         public DbSet<MessageEntity> MessagesTable { get; set; }
+        public DbSet<ReferanceEntity> ReferancesTable { get; set; }
+        public DbSet<FactEntity> FactsTable { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

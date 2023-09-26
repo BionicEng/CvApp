@@ -1,0 +1,40 @@
+﻿@using CvApp.Models.DTO;
+@model List<ReferanceDTO>
+@if(Model.Count is not 0)
+{
+    <section id="testimonials" class="testimonials section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Referanslar</h2>
+            </div>
+
+            <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
+                <div class="swiper-wrapper">
+                    @for (int i = 0; i < Model.Count; i++)
+                    {
+                        <div class="swiper-slide">
+                            <div class="testimonial-item">
+                                <img src="~/Uploads/@Model[i].fileName" style="height:50px" />
+                                <h3>@Model[i].ReferanceName</h3>
+                                <h4>@Model[i].ReferanceTitle</h4>
+                                <p>
+                                    <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+                                    @Model[i].ReferanceDescription
+                                    <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- End testimonial item -->
+                    }
+
+
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+
+        </div>
+    </section>
+}
+

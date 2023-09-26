@@ -17,7 +17,7 @@ namespace CvApp.Data.Entities
         public string? CertificateDescription { get; set; } = string.Empty;
         [Required(ErrorMessage = "Sertifika alınan kurum bilgisi gereklidir.")]
         public string? CertificateCompany { get; set; } = string.Empty;
-        public DateTime? CertificateDate { get; set; }
+        public DateTime CertificateDate { get; set; }
         [ForeignKey(nameof(Person))]
         public int PersonId { get; set; }
         public PersonEntity? Person { get; set; }

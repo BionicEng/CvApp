@@ -77,6 +77,8 @@ builder.Services.AddScoped<IRepositoryManager<PersonEntity>, Repository<PersonEn
 builder.Services.AddScoped<IRepositoryManager<UserEntity>, Repository<UserEntity>>();
 builder.Services.AddScoped<IRepositoryManager<ServiceEntity>, Repository<ServiceEntity>>();
 builder.Services.AddScoped<IRepositoryManager<MessageEntity>, Repository<MessageEntity>>();
+builder.Services.AddScoped<IRepositoryManager<ReferanceEntity>, Repository<ReferanceEntity>>();
+builder.Services.AddScoped<IRepositoryManager<FactEntity>, Repository<FactEntity>>();
 
 var app = builder.Build();
 

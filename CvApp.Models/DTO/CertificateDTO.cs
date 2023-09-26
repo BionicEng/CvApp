@@ -25,7 +25,7 @@ namespace CvApp.Models.DTO
             public string CertificateDescription { get; set; } = string.Empty;
             [Required(ErrorMessage = "Sertifika alınan kurum bilgisi gereklidir.")]
             public string CertificateCompany { get; set; } = string.Empty;
-            public DateTime? CertificateDate { get; set; }
+            public DateTime CertificateDate { get; set; }
             public int PersonId { get; set; }
 
             public string filePath { get; set; } = string.Empty;
