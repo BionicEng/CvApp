@@ -1,80 +1,84 @@
 ﻿@using CvApp.Models.DTO;
 @model List<FactDTO>
-<section id="facts" class="facts">
-    <div class="container" data-aos="fade-up">
+@if(Model.Count is not 0)
+{
+    <section id="facts" class="facts">
+        <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-            <h2>Kazanımlar</h2>
-            <p>
-                Takım çalışması, projelerin başarılı bir şekilde yönetilmesinde kritik bir rol oynar. Bu nedenle, takım içinde etkili iletişim kurabilme, liderlik yeteneklerimi geliştirme ve takım üyeleri arasında işbirliği sağlama becerilerimi sürekli olarak artırıyorum.
-                Proje yönetimi becerilerimi güçlendirme amacıyla proje yönetimi eğitimleri alıyorum. Proje planlaması, kaynak yönetimi ve proje takibi konularında uzmanlaşarak, projeleri başarıyla yönetebiliyorum.
-            </p>
-        </div>
+            <div class="section-title">
+                <h2>Kazanımlar</h2>
+                <p>
+                    Takım çalışması, projelerin başarılı bir şekilde yönetilmesinde kritik bir rol oynar. Bu nedenle, takım içinde etkili iletişim kurabilme, liderlik yeteneklerimi geliştirme ve takım üyeleri arasında işbirliği sağlama becerilerimi sürekli olarak artırıyorum.
+                    Proje yönetimi becerilerimi güçlendirme amacıyla proje yönetimi eğitimleri alıyorum. Proje planlaması, kaynak yönetimi ve proje takibi konularında uzmanlaşarak, projeleri başarıyla yönetebiliyorum.
+                </p>
+            </div>
 
-        <div class="row">
-            @for (int i = 0; i < Model.Count(); i++)
-            {
-                if(i == 0)
+            <div class="row">
+                @for (int i = 0; i < Model.Count(); i++)
                 {
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-emoji-smile"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><h6>@Model[i].PropertyName</h6></p>
-                            <p><h6>@Model[i].Description</h6></p>
+                    if (i == 0)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="count-box">
+                                <i class="bi bi-emoji-smile"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
+                                <p><h6>@Model[i].PropertyName</h6></p>
+                                <p><h6>@Model[i].Description</h6></p>
+                            </div>
                         </div>
-                    </div>
-                    
-                }
-                else if (i == 1)
-                {
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><h6>@Model[i].PropertyName</h6></p>
-                            <p><h6>@Model[i].Description</h6></p>
+
+                    }
+                    else if (i == 1)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="count-box">
+                                <i class="bi bi-journal-richtext"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
+                                <p><h6>@Model[i].PropertyName</h6></p>
+                                <p><h6>@Model[i].Description</h6></p>
+                            </div>
                         </div>
-                    </div>
+
+                    }
+                    else if (i == 2)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="count-box">
+                                <i class="bi bi-headset"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
+                                <p><h6>@Model[i].PropertyName</h6></p>
+                                <p><h6>@Model[i].Description</h6></p>
+                            </div>
+                        </div>
+
+                    }
+                    else if (i == 3)
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="count-box">
+                                <i class="bi bi-journal-richtext"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
+                                <p><h6>@Model[i].PropertyName</h6></p>
+                                <p><h6>@Model[i].Description</h6></p>
+                            </div>
+                        </div>
+
+                    }
+                    else
+                    {
+                        <div class="col-lg-3 col-md-6">
+                            <div class="count-box">
+                                <i class="bi bi-journal-richtext"></i>
+                                <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
+                                <p><h6>@Model[i].PropertyName</h6></p>
+                                <p><h6>@Model[i].Description</h6></p>
+                            </div>
+                        </div>
+
+                    }
+
 
                 }
-                else if (i == 2)
-                {
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-headset"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><h6>@Model[i].PropertyName</h6></p>
-                            <p><h6>@Model[i].Description</h6></p>
-                        </div>
-                    </div>
-
-                }
-                else if (i == 3)
-                {
-                    <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><h6>@Model[i].PropertyName</h6></p>
-                            <p><h6>@Model[i].Description</h6></p>
-                        </div>
-                    </div>
-
-                }
-                else
-                { <div class="col-lg-3 col-md-6">
-                        <div class="count-box">
-                            <i class="bi bi-journal-richtext"></i>
-                            <span data-purecounter-start="0" data-purecounter-end="@Model[i].PropertyStock" data-purecounter-duration="1" class="purecounter"></span>
-                            <p><h6>@Model[i].PropertyName</h6></p>
-                            <p><h6>@Model[i].Description</h6></p>
-                        </div>
-                    </div>
-                    
-                }
-               
-
-            }
-    </div>
-</section>
+            </div>
+    </section>
+}

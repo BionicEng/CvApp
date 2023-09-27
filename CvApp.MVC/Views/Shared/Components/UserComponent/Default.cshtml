@@ -1,11 +1,11 @@
 ﻿@using CvApp.Models.DTO;
 @model UserDTO
+@if(Model is not null)
+{
 
-
-@{
     var age = DateTime.Now.Year - Model.BirtDay.Year;
-}
-<section id="about" class="about">
+
+    <section id="about" class="about">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -51,7 +51,11 @@
         </div>
 
     </div>
-</section><!-- End About Section -->
+</section>
+}
+
+
+
 @section Css
     {
     <style>

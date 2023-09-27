@@ -2,31 +2,34 @@
 @model UserDTO
 
 
+@if(Model is not null)
+{
+    <div class="col-lg-4">
+        <div class="info">
+            <div class="address">
+                <i class="bi bi-geo-alt"></i>
+                <h4>Lokasyon:</h4>
+                <p>@Model.Adress</p>
+            </div>
 
+            <div class="email">
+                <i class="bi bi-envelope"></i>
+                <h4>Email:</h4>
+                <p>@Model.Email</p>
+            </div>
 
-<div class="col-lg-4">
-    <div class="info">
-        <div class="address">
-            <i class="bi bi-geo-alt"></i>
-            <h4>Lokasyon:</h4>
-            <p>@Model.Adress</p>
-        </div>
+            <div class="phone">
+                <i class="bi bi-phone"></i>
+                <h4>Telefon:</h4>
+                <p>@Model.PhoneNumber</p>
+            </div>
 
-        <div class="email">
-            <i class="bi bi-envelope"></i>
-            <h4>Email:</h4>
-            <p>@Model.Email</p>
-        </div>
-
-        <div class="phone">
-            <i class="bi bi-phone"></i>
-            <h4>Telefon:</h4>
-            <p>@Model.PhoneNumber</p>
         </div>
 
     </div>
+}
 
-</div>
+
 
 
 

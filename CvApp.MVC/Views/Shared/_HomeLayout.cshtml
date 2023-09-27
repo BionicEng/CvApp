@@ -5,27 +5,27 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>İdris Gültekin Özgeçmiş</title>
+    <title>MyResume Bootstrap Template - Index</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
     <!-- Favicons -->
-    <link href="assets/img/favicon.png" rel="icon">
-    <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+    <link href="~/img/favicon.png" rel="icon">
+    <link href="~/img/apple-touch-icon.png" rel="apple-touch-icon">
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-    <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="~/vendor/aos/aos.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="~/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="~/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+    <link href="~/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="~/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="~/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: MyResume
@@ -34,7 +34,6 @@
     * Author: BootstrapMade.com
     * License: https://bootstrapmade.com/license/
     ======================================================== -->
-    @await RenderSectionAsync("Css", required: false)
 </head>
 
 <body>
@@ -47,252 +46,67 @@
 
         <nav id="navbar" class="navbar nav-menu">
             <ul>
-
-                @if (!User.Identity.IsAuthenticated)
+                @if(!User.Identity.IsAuthenticated)
                 {
-                    <li class="ms-auto">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="Login"><box-icon type='solid' name='log-in-circle'></box-icon><span>Login</span></a>
-                    </li>
+                    <li><a href="#hero" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                    <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>About</span></a></li>
+                    <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
+                    <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
+                    <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Services</span></a></li>
+                    <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
 
                 }
                 else
                 {
-                    <li>
-                        <a class="nav-link scrollto active" asp-area="" asp-controller="Home" asp-action="Index"><box-icon name='home' type='solid'></box-icon><span>Home</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Certificate" asp-action="List"><box-icon name='comment-add' type='solid'></box-icon><span>Sertifika</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Education" asp-action="List"><box-icon type='logo' name='redux'></box-icon><span>Eğitim</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="KnownProgram" asp-action="List"><box-icon name='party' type='solid'></box-icon><span>Teknoloji Bilgisi</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Language" asp-action="List"><box-icon name='conversation'></box-icon><span>Yabancı Dil</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="JobInformation" asp-action="List"><box-icon name='briefcase-alt-2' type='solid'></box-icon><span>Kariyer</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="User" asp-action="List"><box-icon name='user-pin' type='solid'></box-icon><span>Profil</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Service" asp-action="List"><box-icon name='server' type='solid'></box-icon><span>Servis</span></a>
-                    </li>
-
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Message" asp-action="List"><box-icon name='message-dots'></box-icon><span>Mesaj</span></a>
-                    </li>
-                    <li>
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Referance" asp-action="List"><box-icon name='message-rounded-detail'></box-icon><span>Referans</span></a>
-                    </li>
-
-                    <li class="ms-auto">
-                        <a class="nav-link scrollto" asp-area="" asp-controller="Auth" asp-action="Logout"><box-icon type='solid' name='log-out-circle'></box-icon><span>Logout</span></a>
-                    </li>
+                    <li><a asp-controller="Home" asp-action="Index" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Home</span></a></li>
+                    <li><a asp-controller="User" asp-action="List" class="nav-link scrollto"><i class="bx bx-user"></i> <span>User</span></a></li>
+                    <li><a asp-controller="Education" asp-action="List" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Education</span></a></li>
+                    <li><a asp-controller="JobInformation" asp-action="List" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>JobInformation</span></a></li>
+                    <li><a asp-controller="Certificate" asp-action="List" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Certificate</span></a></li>
+                    <li><a asp-controller="KnownProgram" asp-action="List" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>KnownProgram</span></a></li>
+                    <li><a asp-controller="Language" asp-action="List" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>Language</span></a></li>
+                    <li><a asp-controller="Referance" asp-action="List" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Referance</span></a></li>
+                    <li><a asp-controller="Service" asp-action="List" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Service</span></a></li>
+                    <li><a asp-controller="Message" asp-action="List" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Message</span></a></li>
+                    <li><a asp-controller="Certificate" asp-action="List" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Certificate</span></a></li>
+                    <li><a asp-controller="Fact" asp-action="List" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Fact</span></a></li>
                 }
-            </ul>
-        </nav><!-- .nav-menu -->
 
-    </header><!-- End Header -->
-    <!-- ======= Hero Section ======= -->
-    @await Component.InvokeAsync("HeroComponent")<!-- End Hero -->
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
-    </div>
+            </ul>
+        </nav>
+
+    </header>
+    @await Component.InvokeAsync("HeroComponent")
+
+
     <main id="main">
 
-        <!-- ======= About Section ======= -->
-        <!-- ======= Facts Section ======= -->
-        <!-- End Facts Section -->
-        <!-- ======= Skills Section ======= -->
-        <!-- ======= Resume Section ======= -->
-        <!-- End Resume Section -->
-        <!-- ======= Portfolio Section ======= -->
-        @*        <section id="portfolio" class="portfolio section-bg">
-        <div class="container" data-aos="fade-up">
-
-        <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+            </main>
         </div>
 
-        <div class="row">
-        <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-        <ul id="portfolio-flters">
-        <li data-filter="*" class="filter-active">All</li>
-        <li data-filter=".filter-app">App</li>
-        <li data-filter=".filter-card">Card</li>
-        <li data-filter=".filter-web">Web</li>
-        </ul>
-        </div>
-        </div>
-
-        <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>App 1</h4>
-        <p>App</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Web 3</h4>
-        <p>Web</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>App 2</h4>
-        <p>App</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 2"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Card 2</h4>
-        <p>Card</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 2"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Web 2</h4>
-        <p>Web</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 2"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>App 3</h4>
-        <p>App</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 3"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Card 1</h4>
-        <p>Card</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Card 3</h4>
-        <p>Card</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-        <div class="portfolio-wrap">
-        <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-        <div class="portfolio-info">
-        <h4>Web 3</h4>
-        <p>Web</p>
-        <div class="portfolio-links">
-        <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-        <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-        </div>
-        </div>
-        </div>
-        </div>
-
-        </div>
-
-        </div>
-        </section><!-- End Portfolio Section -->*@
-        <!-- ======= Services Section ======= -->
-        <!-- End Services Section -->
-        <!-- ======= Testimonials Section ======= -->
-        <!-- End Testimonials Section -->
-        <!-- ======= Contact Section ======= -->
-        <!-- End Contact Section --><!-- End Contact Section -->
-        <!-- End Contact Section -->
-
-    </main><!-- End #main -->
-    <!-- ======= Footer ======= -->
+    </main>
     @await Component.InvokeAsync("FooterComponent")
+<!-- End Footer -->
 
     <div id="preloader"></div>
     <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-    <script src="assets/vendor/aos/aos.js"></script>
-    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-    <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="assets/vendor/typed.js/typed.umd.js"></script>
-    <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-    <script src="assets/vendor/php-email-form/validate.js"></script>
-    <script src="https://unpkg.com/boxicons@2.1.4/dist/boxicons.js"></script>
+    <script src="~/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="~/vendor/aos/aos.js"></script>
+    <script src="~/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="~/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="~/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="~/vendor/typed.js/typed.umd.js"></script>
+    <script src="~/vendor/waypoints/noframework.waypoints.js"></script>
+    <script src="~/vendor/php-email-form/validate.js"></script>
 
     <!-- Template Main JS File -->
-    <script src="assets/js/main.js"></script>
+    <script src="~/js/main.js"></script>
 
 </body>
 

@@ -1,6 +1,8 @@
 ﻿@using CvApp.Models.DTO.CvApp.Data.Entities;
 @model List<CertificateDTO>
-<section id="certificates" class="certificates section-bg">
+@if(Model.Count is not 0)
+{
+    <section id="certificates" class="certificates section-bg">
     <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -30,6 +32,8 @@
 
     </div>
 </section>
+
+}
 
 <style>
     .certificates {

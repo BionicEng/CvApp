@@ -45,11 +45,7 @@ namespace CvApp.MVC.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var UserCount = _userRepo.Get().Count();
-            if (UserCount > 0)
-            {
-                return RedirectToAction("Update", "User", new { id = 5 });
-            }
+            
 
             return View();
         }

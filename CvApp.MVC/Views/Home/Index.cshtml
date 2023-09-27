@@ -1,5 +1,4 @@
-﻿
-@{
+﻿@{
     Layout = "_HomeLayout";
 }
 @using CvApp.Data.Entities;
@@ -10,7 +9,6 @@
 
 
 
-@await Component.InvokeAsync("LanguageComponent")
 @await Component.InvokeAsync("UserComponent")
 @await Component.InvokeAsync("KnownProgramComponent")
 @await Component.InvokeAsync("EducationComponent")
@@ -19,26 +17,27 @@
 @await Component.InvokeAsync("ServiceComponent")
 @await Component.InvokeAsync("ReferanceComponent")
 @await Component.InvokeAsync("FactComponent")
+@if (User.Identity.IsAuthenticated)
+{
+    <section id="contact" class="contact">
+        <div class="container" data-aos="fade-up">
 
-<section id="contact" class="contact">
-    <div class="container" data-aos="fade-up">
+            <div class="section-title">
+                <h2>İLETİŞİM</h2>
+            </div>
 
-        <div class="section-title">
-            <h2>İLETİŞİM</h2>
+            <div class="row mt-1">
+
+                @await Component.InvokeAsync("ContactComponent")
+
+                @await Component.InvokeAsync("MessageComponent")
+
+
+
+            </div>
+
         </div>
 
-        <div class="row mt-1">
-
-            @await Component.InvokeAsync("ContactComponent")
-
-            @await Component.InvokeAsync("MessageComponent")
-
-
-
-        </div>
-
-    </div>
-
-</section>
-
+    </section>
+}
 

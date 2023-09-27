@@ -20,6 +20,19 @@ namespace CvApp.Business.Extensions
     public static class Extension
     {
         //Burada this kullandığımız için metodu çağırdığımda ServiceCollection'ı parametre olarak vermeye gerek kalmadı. Sadece confiquration verilecek.
+        //public static IServiceCollection AddMyDbContext(this IServiceCollection services, IConfiguration configuration)
+        //{
+        //    //Veri tabanı dizesini aldım
+        //    var connectionString = configuration.GetConnectionString("DefaultConnection");
+
+        //    //DbContexti ekledim
+        //    services.AddDbContext<AppDbContext>(options =>
+        //        options.UseSqlServer(connectionString)
+        //    );
+
+        //    return services;
+
+        //}
         public static IServiceCollection AddMyDbContext(this IServiceCollection services, IConfiguration configuration)
         {
             //Veri tabanı dizesini aldım
@@ -27,7 +40,7 @@ namespace CvApp.Business.Extensions
 
             //DbContexti ekledim
             services.AddDbContext<AppDbContext>(options =>
-                options.UseSqlServer(connectionString)
+                options.UseMySQL(connectionString)
             );
 
             return services;

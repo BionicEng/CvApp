@@ -1,43 +1,46 @@
 ﻿@using CvApp.Models.DTO;
 @model List<EducationDTO>
-<div class="section-title">
-    <h2>Özgeçmiş</h2>
-    <p>Kariyer yolculuğum ve eğitim geçmişim hakkında kesitler:</p>
-</div>
-
-<section id="resume" class="resume">
-    <div class="container" data-aos="fade-up">
-
-
-
-        <div class="row">
-            <h3 class="resume-title">Eğitim Bilgileri</h3>
-            <div class="col-lg-6">
-                @for (int i = 0; i < Model.Count/2; i++)
-                {
-                    <div class="resume-item">
-                        <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
-                        <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
-                        <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
-                        <p>@Model[i].EducationDescription</p>
-                    </div>
-
-                }
-
-            </div>
-            <div class="col-lg-6">
-                @for (int i = Model.Count / 2; i < Model.Count; i++)
-                {
-                    <div class="resume-item">
-                        <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
-                        <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
-                        <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
-                        <p>@Model[i].EducationDescription</p>
-                    </div>
-                }
-
-            </div>
-        </div>
-
+@if(Model.Count is not 0)
+{
+    <div class="section-title">
+        <h2>Özgeçmiş</h2>
+        <p>Kariyer yolculuğum ve eğitim geçmişim hakkında kesitler:</p>
     </div>
-</section>
+
+    <section id="resume" class="resume">
+        <div class="container" data-aos="fade-up">
+
+
+
+            <div class="row">
+                <h3 class="resume-title">Eğitim Bilgileri</h3>
+                <div class="col-lg-6">
+                    @for (int i = 0; i < Model.Count / 2; i++)
+                    {
+                        <div class="resume-item">
+                            <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
+                            <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
+                            <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
+                            <p>@Model[i].EducationDescription</p>
+                        </div>
+
+                    }
+
+                </div>
+                <div class="col-lg-6">
+                    @for (int i = Model.Count / 2; i < Model.Count; i++)
+                    {
+                        <div class="resume-item">
+                            <h5>@Model[i].StartedTime.Year - @Model[i].EndTime.Year</h5>
+                            <p><em>@Model[i].Department - @Model[i].DegreeNote </em></p>
+                            <h4>@Model[i].UniversityName - @Model[i].FacultyName</h4>
+                            <p>@Model[i].EducationDescription</p>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+    </section>
+}

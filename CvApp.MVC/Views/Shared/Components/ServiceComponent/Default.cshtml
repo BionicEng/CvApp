@@ -1,31 +1,34 @@
 ﻿@using CvApp.Models.DTO;
 @model List<ServiceDTO>
 
+@if(Model.Count is not 0)
+{
+    <section id="services" class="services">
+        <div class="container" data-aos="fade-up">
 
+            <div class="section-title">
+                <h2>Çalışma Alanlarım</h2>
+                <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+
+            <div class="row">
+                @for (int i = 0; i < Model.Count; i++)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="icon-box">
+                            <div class="icon">
+                                <img src="~/Uploads/@Model[i].fileName" style="height:100px" />
+                            </div>
+                            <h4><a href="">@Model[i].Name</a></h4>
+                            <p> @Model[i].Description</p>
+                        </div>
+                    </div>
+                }
+            </div>
+    </section>
+}
 
 <!-- ======= Services Section ======= -->
-<section id="services" class="services">
-    <div class="container" data-aos="fade-up">
 
-        <div class="section-title">
-            <h2>Çalışma Alanlarım</h2>
-            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
-        </div>
-
-        <div class="row">
-            @for (int i = 0; i < Model.Count; i++)
-            {
-                <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="icon-box">
-                        <div class="icon">
-                            <img src="~/Uploads/@Model[i].fileName" style="height:100px" />
-                        </div>
-                        <h4><a href="">@Model[i].Name</a></h4>
-                        <p> @Model[i].Description</p>
-                    </div>
-                </div>
-            }
-        </div>
-</section>
 
 <!-- End Services Section -->

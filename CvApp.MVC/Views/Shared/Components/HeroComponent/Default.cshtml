@@ -1,30 +1,36 @@
 ﻿@using CvApp.Models.DTO;
 @model UserDTO
-<section id="hero" class="d-flex flex-column justify-content-center">
-    <div class="container" data-aos="zoom-in" data-aos-delay="100">
-        <h1>@Model.FirstName @Model.LastName</h1>
-        <p>I'm <span class="typed" data-typed-items="Engineer, Developer, Freelancer, Musician"></span></p>
-        <div class="social-links">
-            @if (Model.TwitterLink is not null)
-            {
-                <a href="@Model.TwitterLink" class="twitter"><i class="bx bxl-twitter"></i></a>
-            }
-            @if (Model.FacebookLink is not null)
-            {
-                <a href="@Model.FacebookLink" class="facebook"><i class="bx bxl-facebook"></i></a>
-            }
-            @if (Model.InstagramLınk is not null)
-            {
-                <a href="@Model.InstagramLınk" class="instagram"><i class="bx bxl-instagram"></i></a>
-            }
-            @if (Model.SkypeLınk is not null)
-            {
-                <a href="@Model.SkypeLınk" class="google-plus"><i class="bx bxl-skype"></i></a>
-            }
-            @if (Model.LinkedinLink is not null)
-            {
-                <a href="@Model.LinkedinLink" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-            }
+@if(Model is not null)
+{
+    <section id="hero" class="d-flex flex-column justify-content-center">
+        <div class="container" data-aos="zoom-in" data-aos-delay="100">
+            <h1>@Model.FirstName @Model.LastName</h1>
+            <p>I'm <span class="typed" data-typed-items="Engineer, Developer, Freelancer, Musician"></span></p>
+            <div class="social-links">
+                @if (Model.TwitterLink is not null)
+                {
+                    <a href="@Model.TwitterLink" class="twitter"><i class="bx bxl-twitter"></i></a>
+                }
+                @if (Model.FacebookLink is not null)
+                {
+                    <a href="@Model.FacebookLink" class="facebook"><i class="bx bxl-facebook"></i></a>
+                }
+                @if (Model.InstagramLınk is not null)
+                {
+                    <a href="@Model.InstagramLınk" class="instagram"><i class="bx bxl-instagram"></i></a>
+                }
+                @if (Model.SkypeLınk is not null)
+                {
+                    <a href="@Model.SkypeLınk" class="google-plus"><i class="bx bxl-skype"></i></a>
+                }
+                @if (Model.LinkedinLink is not null)
+                {
+                    <a href="@Model.LinkedinLink" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+                }
+            </div>
         </div>
-    </div>
-</section>
+    </section>
+
+}
+
+
